@@ -1,0 +1,83 @@
+PixDash – "Echoes in the Snow"
+
+A world where machines outlived their makers. Systems still run, 
+still watch, still enforce rules nobody remembers. You run because 
+stopping feels like deletion.
+
+You're a courier clone. One of thousands dropped into containment 
+zones to deliver packages to cities that died decades ago. Your 
+memories are fragmented – orders, sirens, snow. But running? 
+That's clear.
+
+WORLD FEEL
+Cold. Watchful. Preserved. Snow stays perfect. Lights flicker in 
+empty buildings. Everything hums faintly, like a computer left on 
+overnight. You're not alone, but nothing speaks.
+
+WINTER BIOME
+Artificial freeze. Snow looks stored, not fallen. Ice golems patrol 
+in straight lines – old security mechs preserving "optimal 
+conditions." Cross their path, they correct the error (you).
+
+ICE GOLEMS
+Frozen riot control units. Slow, methodical. Slam ground → ice 
+shockwaves. Raise walls to funnel you. Not angry, just protocol.
+
+CROWS
+Surveillance drones (or drone-birds). Circle above, dive when you 
+linger near antennas. Their eyes glow slightly wrong. They report 
+back to... something.
+
+FOREST BIOME  
+Nature fighting back. Trees strangle old cables. Ground twitches 
+when you land. Mushrooms hide in plain sight – fungal networks 
+that learned ambush from watching couriers die.
+
+CAMOUFLAGING MUSHROOMS
+Evolved to eat courier tech. Perfectly still until you step close. 
+Spore burst blinds you. Some uproot and lunge. Tired of being a 
+highway.
+
+WOLVES
+Real animals. Learned your routes = easy food. Pack tactics – one 
+distracts, others flank. Most honest threat here. Hunger > protocol.
+
+URBAN RUINS
+City pretends it's alive. Traffic lights blink. Vending machines 
+hum. Skeletons shamble through old routines – previous couriers, 
+reanimated by emergency tech. Their attacks mirror yours, just broken.
+
+SKELETONS
+Muscle memory ghosts. Jittery loops of punch/block/jump. Found 
+near delivery checkpoints. Dog tags read: "Courier 24CS0159."
+
+TEXTS & SIGNAGE
+"DO NOT STOP FOR CROWS"
+"STABILITY PROTOCOLS ACTIVE"
+"PREVIOUS RUNNER: 00:47:12"
+"WOLVES FOLLOW HEAT SIGNATURES"
+"CITY LIGHTS = TRAP"
+"YOU ARE RUN #A2305225427"
+
+RADIO CHATTER
+[static] "Courier A2305225427 status?" [silence]
+[static] "Optimal challenge parameters holding."
+[static] "Unit deployed. Timer started."
+
+The tragedy: you're not saving anything. You're calibration data 
+for the next courier. The world endures. The deliveries continue. 
+Someone, somewhere still waits for their package.
+
+Ending tone (not a fixed ending, just a feeling)
+
+Whether the player reaches the end of the city or not, the world does not flip a switch and resolve. There is no big cinematic declaring victory. Instead, the feeling is:
+
+You were part of a long chain of attempts.
+
+The world will keep running, watching, and adapting.
+
+Movement is not about “saving the world”, but about understanding why it became like this.
+
+The story does not close the loop perfectly. It leaves just enough space for players to form their own answers – and their own doubts.
+
+-- A2305225427
