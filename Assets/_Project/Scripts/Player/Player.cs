@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
-public class Player : MonoBehaviour
+namespace PixDash.Player
 {
+    public class Player : MonoBehaviour
+    {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
@@ -13,7 +16,7 @@ public class Player : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D rb;
-    private PlayerHealth playerHealth;
+        private Health playerHealth;
     private float horizontal;
     private bool isGrounded;
     private bool FacingRight = true;
@@ -23,7 +26,9 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<Health>();
+
+        Debug.Log($"[PlayerDebug] Awake: RB is {(rb != null ? "found" : "MISSING")}, Animator is {(animator != null ? "found" : "MISSING")}, Health is {(playerHealth != null ? "found" : "MISSING")}");
 
         if (playerHealth != null)
         {
@@ -38,8 +43,15 @@ public class Player : MonoBehaviour
             return;
         }
 
-        horizontal = Keyboard.current.aKey.isPressed ? -1 :
-                     Keyboard.current.dKey.isPressed ? 1 : 0;
+        if (Keyboard.current != null)
+        {
+            horizontal = Keyboard.current.aKey.isPressed ? -1 :
+                         Keyboard.current.dKey.isPressed ? 1 : 0;
+        }
+        else
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+        }
 
         if ((horizontal == -1 && FacingRight == true) || (horizontal == 1 && FacingRight == false))
         {
@@ -52,18 +64,23 @@ public class Player : MonoBehaviour
             groundLayer
         );
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
+        bool spacePressed = (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame) || Input.GetKeyDown(KeyCode.Space);
+        if (spacePressed && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        bool punchPressed = Input.GetMouseButtonDown(0) || (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame);
+        if (punchPressed)
         {
+            Debug.Log("[PlayerDebug] Left Click pressed!");
             TryPunch();
         }
 
-        if (Keyboard.current.kKey.wasPressedThisFrame)
+        bool kPressed = Input.GetKeyDown(KeyCode.K) || (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame);
+        if (kPressed)
         {
+            Debug.Log("[PlayerDebug] 'K' key pressed!");
             DebugTakeDamage();
         }
 
@@ -98,7 +115,11 @@ public class Player : MonoBehaviour
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(debugDamageAmount);
-            Debug.Log($"Debug damage: {debugDamageAmount}. Health: {playerHealth.currentHealth}");
+            Debug.Log($"[PlayerDebug] Applied {debugDamageAmount} damage. New Health: {playerHealth.currentHealth}");
+        }
+        else
+        {
+            Debug.LogError("[PlayerDebug] Cannot take damage: Health component is MISSING from the Player object!");
         }
     }
 
@@ -109,5 +130,6 @@ public class Player : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
     }
 }

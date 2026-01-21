@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerHealth : MonoBehaviour
+namespace PixDash.Player
 {
+    public class Health : MonoBehaviour
+    {
     public int maxHealth = 100;
     public int currentHealth;
     public bool isDead = false;
 
-    public UnityEvent<int> onHealthChanged;
-    public UnityEvent onDeath;
+        public UnityEvent<int> onHealthChanged = new UnityEvent<int>();
+        public UnityEvent onDeath = new UnityEvent();
 
     private void Start()
     {
@@ -32,12 +34,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Die()
-    {
-        if (isDead) return;
+        private void Die()
+        {
+            if (isDead) return;
 
-        isDead = true;
-        Debug.Log("<color=black><b>Player has died!</b></color>");
-        onDeath?.Invoke();
+            isDead = true;
+            Debug.Log($"<color=black><b>{gameObject.name} has died!</b></color>");
+            onDeath?.Invoke();
+        }
     }
 }

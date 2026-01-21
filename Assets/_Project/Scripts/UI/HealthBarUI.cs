@@ -1,40 +1,46 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using TMPro;
+using PixDash.Player;
 
-public class HealthBarUI : MonoBehaviour
+namespace PixDash.UI
 {
-    public PlayerHealth playerHealth;
-    public Image fillImage;
-    public Text healthText;
-
-    private void Start()
+    public class HealthBarUI : MonoBehaviour
     {
-        if (playerHealth != null)
-        {
-            playerHealth.onHealthChanged.AddListener(UpdateHealthBar);
-            UpdateHealthBar(playerHealth.currentHealth);
-        }
-    }
+        public Health health;
+        public Image fillImage;
+        public TextMeshProUGUI healthText;
 
-    private void UpdateHealthBar(int currentHealth)
-    {
-        if (fillImage != null)
+        private void Start()
         {
-            float fillAmount = (float)currentHealth / playerHealth.maxHealth;
-            fillImage.fillAmount = fillAmount;
+            if (health != null)
+            {
+                health.onHealthChanged.AddListener(UpdateHealthBar);
+                UpdateHealthBar(health.currentHealth);
+            }
         }
 
-        if (healthText != null)
+        private void UpdateHealthBar(int currentHealth)
         {
-            healthText.text = $"{currentHealth} / {playerHealth.maxHealth}";
-        }
-    }
+            if (fillImage != null && health != null)
+            {
+                float fillAmount = (float)currentHealth / health.maxHealth;
+                fillImage.fillAmount = fillAmount;
+            }
 
-    private void OnDestroy()
-    {
-        if (playerHealth != null)
+            if (healthText != null && health != null)
+            {
+                healthText.text = $"{currentHealth} / {health.maxHealth}";
+            }
+        }
+
+        private void OnDestroy()
         {
-            playerHealth.onHealthChanged.RemoveListener(UpdateHealthBar);
+            if (health != null)
+            {
+                health.onHealthChanged.RemoveListener(UpdateHealthBar);
+            }
         }
     }
 }
